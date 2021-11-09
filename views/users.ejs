@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.min.css" />
+
+  <title>Login/ Register</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="main-panel">
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="header">
+                  <h4 class="title">List of all users.</h4>
+                </div>
+                <div class="content table-responsive table-full-width">
+                  <h1 class="display-4 text-center" id="noResults" style="display: none;">
+                    <span>No records found</span>
+                  </h1>
+
+                  <% if(users.length> 0){ %>
+                    <table class="table table-hover table-striped" id="myTable">
+                      <thead>
+                        <th>Sr.</th>
+                        <th>Email</th>
+                      </thead>
+                      <tbody class="mainTableBody">
+                        <% for (x in users) { %>
+                          <tr id="tr<%= users[x].id %>">
+                            <td>
+                              <%= parseInt(x) + 1 %>
+                            </td>
+                            <td>
+                              <%= users[x].email %>
+                            </td>
+                          </tr>
+                          <% } %>
+                      </tbody>
+                    </table>
+                    <% } else { %>
+                      <h1 class="display-4 text-center">
+                        <span>No records found</span>
+                      </h1>
+                      <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
